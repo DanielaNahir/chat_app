@@ -1,0 +1,90 @@
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+
+ion-item {
+    margin-bottom: 30px;
+}
+
+ion-button {
+    --border-radius: 20px;
+    margin: 0px;
+    --background: #9b1111b9; /* Color de fondo */
+    color: white;
+}
+
+.btn{
+    width: 250px;
+    height: 70px;
+    font-size: 1rem;
+}
+
+ion-item {
+    --border-radius: 20px;
+    --background: #8a514a;
+    --color: #9c0000d3;
+    font-size: 0.7rem;
+    color: #ffffff;
+    width: 100%;
+}
+
+.bi-tools{
+    width: 40px;
+    height: 40px;
+    color: #583530;
+}
+
+.botones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.acceso-rapido{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    --background: #d13131a4;
+    align-self:flex-start;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+form{
+    position: relative;
+    top: -40px;
+    background-color: transparent;
+    border: 2px solid #000000; 
+    padding: 15px;
+    border-radius: 20px;
+}
+
+
+.validaciones{
+    color: rgb(110, 12, 12);
+}
+
+.bi-person-fill-up{
+    position: relative;
+    top: -50px;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 0px;
+    color: #3e6136;
+}
+
+.botones-acceso-rapido{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
