@@ -88,3 +88,20 @@ form{
     left: 10px;
     bottom: 10px;
 }
+
+img{
+    position: relative;
+    top: -50px;
+    width: 200px;
+    height: 200px;
+}
+
+.blanco{
+    position: absolute;
+    background-color: white;
+    width: 100px;
+    height: 50px;
+    top: 90px;
+    left: 115px;
+    z-index: -1;
+}
