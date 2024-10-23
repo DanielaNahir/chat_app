@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="toolbar-content">
+      <button (click)="atras()" class="back-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+        </svg>
+      </button>
+      <ion-title><strong>PPS-4B</strong></ion-title>
+      <div class="username">{{firebase.usuario.displayName}}</div>
+      
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="contenedor">
+    <div class="chat-container">
+        <div class="msj-container" id="msgContainer"> 
+            @for (mensaje of mensajes; track $index) {
+                <div [ngClass]="{ 'mensaje-propio': mensaje.email == firebase.usuario.email ,
+                    'mensaje' : mensaje.email != firebase.usuario.email}">
+                    @if (mensaje.email != firebase.usuario.email) {
+                      <h2>{{mensaje.usuario}} ~</h2>   
+                    }
+                    <p>{{mensaje.texto}}</p>
+                    <h4>{{mensaje.fecha}}</h4>
+                </div>
+            }
+        </div>
+        
+        <div class="form-floating">  
+          <input [(ngModel)]="msjNuevo" name="mensaje" type="text" class="form-control" id="floatingMensaje" placeholder="mensaje">
+          <button (click)="enviarMensaje()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"/>
+              </svg>
+          </button>
+      </div>
+      
+        
+    </div>
+  </div>
+  
+</ion-content>

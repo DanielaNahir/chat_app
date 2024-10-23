@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
   }
 
   clickAdmin() {
-    this.form.get('correo')?.setValue('admin@ad.com');
+    this.form.get('correo')?.setValue('admin@admin.com');
     this.form.get('clave')?.setValue('123456');
   }
 

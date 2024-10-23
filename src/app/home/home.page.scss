@@ -1,27 +1,55 @@
-#container {
+
+
+
+.btn-lindo {
+  background-color: rgb(143, 172, 64);
+  border: 2px solid #166421; 
+}
+
+.btn-feo {   
+  background-color: rgb(34, 151, 151);
+  border: 2px solid #153f77; 
+}
+
+.btn-feo, .btn-lindo{
+  border-radius: 8px;
+  font-size: 40px;
+  width: 95%;
+  height: 45%; 
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.contenedor-buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  height: 95%;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+
+
+.bi-building-fill-x, .bi-building-fill-check{
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
 
-  color: #8c8c8c;
 
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.cerrar-sesion{
+  position: relative;
+  top: 9px;
+  left: 9px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #b1401d;
+  border: 2px solid #993516;
+  font-size: 1.1rem;
 }

@@ -6,16 +6,24 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { User } from '../models/user';
+import { Mensaje } from '../models/mensaje';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-
+  usuario: any = null;
   auth = inject(AngularFireAuth);
   firestore = inject(AngularFirestore);
   router = inject(Router);
 
+  constructor() {
+    this.auth.onAuthStateChanged((auth) =>{
+      if(auth?.email){
+        this.usuario = auth;
+      }
+    })
+  }
   
 
   // autenticacion
@@ -29,14 +37,21 @@ export class FirebaseService {
   }
 
   // actualizar
-  update(displayName: string){
+  async update(displayName: string) {
     const user = getAuth().currentUser;
-
+  
     if (user !== null) {
-      return updateProfile(user, { displayName });
+      try {
+        await updateProfile(user, { displayName });
+        console.log('DisplayName actualizado correctamente.');
+      } catch (error) {
+        console.error('Error al actualizar el DisplayName:', error);
+        throw new Error('Error al actualizar el perfil del usuario.');
+      }
     } else {
       throw new Error("No hay usuario autenticado");
-    }}
+    }
+  }
 
   // setear documento
   setDoc(path: string, data:any){
@@ -62,6 +77,18 @@ export class FirebaseService {
   getUsuarios(): Observable<User[]> {
     const usuariosCol = this.firestore.collection<User>('adminUsuarios'); // Asegura que la colección sea de tipo User
     return usuariosCol.valueChanges();  // Retorna un Observable<User[]>
+  }
+
+
+
+
+  guardarMensaje(mensaje:Mensaje, collection:string){
+    const usuariosCol = this.firestore.collection(collection);
+    return usuariosCol.add({ ...mensaje });
+  }
+
+  cargarMensajes(collection:string): Observable<Mensaje[]> {
+    return this.firestore.collection<Mensaje>(collection, ref => ref.orderBy('fecha', 'asc')).valueChanges();
   }
 
 }
